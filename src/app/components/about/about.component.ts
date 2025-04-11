@@ -22,8 +22,8 @@ export class AboutComponent {
     },
     {
       name: "Carter Manchester",
-      bio: "Insert bio here.",
-      image: "images/propic.jpg"
+      bio: "My name is Carter, and this is my third year studying Computer Science here at Colorado State University. Computer Science has been a passion of mine, and I absolutely love finding new projects to fill my time. Outside of school, I love rock climbing, camping, backpacking, and photography.",
+      image: "images/carter.jpeg"
     },
     {
       name: "Payton Paplow",
