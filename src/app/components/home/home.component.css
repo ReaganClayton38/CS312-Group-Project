@@ -1,0 +1,31 @@
+.home-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 500px;
+}
+
+h1 {
+    color: #3b3b3b;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: #eab452;
+}
+
+p {
+    color: #3b3b3b;
+    font-family: Veranda, sans-serif;
+    font-size: 20px;
+}
+
+span {
+    color: #4b6a88;
+    text-decoration: underline;
+    text-decoration-color: #eab452;
+}

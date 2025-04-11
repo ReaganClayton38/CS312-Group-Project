@@ -1,0 +1,29 @@
+.navbar {
+    width: 100%;
+    overflow: auto;
+    background-color: #0b2d37;
+    height: 80px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.nav-links {
+    font-family: Verdana, sans-serif;
+    float: left;
+    color: #eab452;
+    text-decoration: none;
+    height: 100%;
+    line-height: 80px;
+    margin-right: 10px;
+    padding: 0 10px;
+}
+
+.nav-links:hover {
+    background-color: #eab452;
+    color: #0b2d37;
+}
+
+img {
+    float: left;
+    height: 100%;
+}

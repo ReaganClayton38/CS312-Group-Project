@@ -1,8 +1,35 @@
 .about-container {
     text-align: center;
-    padding: 20px 20%;
+    padding: 80px 20%;
+}
+
+.about-container h1 {
+    color: #3b3b3b;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: #eab452;
+}
+
+.about-container h2 {
+    font-family: Verdana, sans-serif;
+    color: #4b6a88;
+}
+
+.about-container p {
+    color: #3b3b3b;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+.card {
+    padding: 50px 0;
 }
 
 img {
     width: 300px;
+}
+
+hr {
+    border: 2px solid #eab452;
+    
 }

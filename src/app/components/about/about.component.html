@@ -1,10 +1,11 @@
 <section class="about-container">
-    <h2>Our Team</h2>
+    <h1>Our Team</h1>
     <div class="card" *ngFor="let member of team">
         <div class="bio">
             <img [src]="member.image" [alt]="member.name">
-            <h3>{{ member.name }}</h3>
+            <h2>{{ member.name }}</h2>
             <p>{{ member.bio }}</p>
         </div>
+        <hr>
     </div>
 </section>
