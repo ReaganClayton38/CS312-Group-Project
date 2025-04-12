@@ -3,7 +3,7 @@
         <label for="rows">Rows:</label>
         <input type="number" id="rows" formControlName="rows">
         <div *ngIf="rowsValue?.invalid && (rowsValue?.dirty || rowsValue?.touched)">
-            <div *ngIf="rowsValue?.errors?.['required']">Please enter a integer value for number of rows.</div>
+            <div *ngIf="rowsValue?.errors?.['required']">Please enter an integer value for number of rows.</div>
             <div *ngIf="rowsValue?.errors?.['min']">Value must be at least 1.</div>
             <div *ngIf="rowsValue?.errors?.['max']">Value cannot be greater than 1000.</div>
         </div>
@@ -12,7 +12,7 @@
         <label for="columns">Columns:</label>
         <input type="number" id="columns" formControlName="columns">
         <div *ngIf="columnsValue?.invalid && (columnsValue?.dirty || columnsValue?.touched)">
-            <div *ngIf="columnsValue?.errors?.['required']">Please enter a integer value for number of columns.</div>
+            <div *ngIf="columnsValue?.errors?.['required']">Please enter an integer value for number of columns.</div>
             <div *ngIf="columnsValue?.errors?.['min']">Value must be at least 1.</div>
             <div *ngIf="columnsValue?.errors?.['max']">Value cannot be greater than 702.</div>
         </div>
@@ -21,7 +21,7 @@
         <label for="colors">Colors:</label>
         <input type="number" id="colors" formControlName="colors">
         <div *ngIf="colorsValue?.invalid && (colorsValue?.dirty || colorsValue?.touched)">
-            <div *ngIf="colorsValue?.errors?.['required']">Please enter a integer value for number of colors.</div>
+            <div *ngIf="colorsValue?.errors?.['required']">Please enter an integer value for number of colors.</div>
             <div *ngIf="colorsValue?.errors?.['min']">Value must be at least 1.</div>
             <div *ngIf="colorsValue?.errors?.['max']">Value cannot be greater than 10.</div>
         </div>
