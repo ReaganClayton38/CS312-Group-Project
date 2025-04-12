@@ -1,5 +1,5 @@
 <section class="generator-container">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"> 
         <label for="rows">Rows:</label>
         <input type="number" id="rows" formControlName="rows">
         <div *ngIf="rowsValue?.invalid && (rowsValue?.dirty || rowsValue?.touched)">
@@ -30,3 +30,56 @@
         <button type="submit">Submit</button>
     </form>
 </section>
+
+<!-- Table 1 -->
+<div *ngIf="showTables">
+    <table class="color-selection-table" style="width: 100%; table-layout: fixed;">
+        <tbody>
+            <tr *ngFor="let clr of tableColors; let i = index">
+                <td style="width: 20%;">
+                    <input type="radio" name="selectedRow" [checked]="selectedRowIndex === i" (click)="onRowSelect(i)">
+                    <select [value]="tableColors[i]" (change)="onColorChange(i, $event)">
+                        <option *ngFor="let option of getAvailableColors(i)" [value]="option">
+                            {{ option }}
+                        </option>
+                    </select>
+                </td>
+                <td style="width: 80%;"></td> <!-- that took way too long to figure out lol. This leaves right cell blank. -->
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <br>
+    <!-- Table 2 -->
+    <table class="color-painting-table" border="1" style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr>
+                <th 
+                    style="width: 50px;"> <!--upper cell empty-->
+                </th>
+                <th 
+                    *ngFor="let j of [].constructor(numCols); let jIndex = index"> <!--header-->
+                    {{ getLetterColumnName(jIndex) }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of [].constructor(numRows); let iIndex = index">
+                <th style="width: 50px;">{{ iIndex + 1 }}</th>
+
+                <td *ngFor="let j of [].constructor(numCols); let jIndex = index"
+                    style="cursor: pointer;"
+                    (click)="cellClicked(iIndex+1, jIndex+1)"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+
+
+    <button (click)="printPage()">Print Page</button>
+
+</div>
