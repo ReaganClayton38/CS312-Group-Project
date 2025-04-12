@@ -7,3 +7,13 @@ html, body {
 * {
     outline: none;
 }
+
+@media print {
+    body{
+        filter: grayscale(100%) !important;
+    }
+
+    input, select, button, .generator-container{
+        display: none !important;
+    }
+}

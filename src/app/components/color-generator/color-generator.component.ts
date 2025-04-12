@@ -88,7 +88,7 @@ export class ColorGeneratorComponent {
   //table 2 click
   cellClicked(row: number, col: number): void {
     const colLabel = this.getLetterColumnName(col-1);
-    alert(`${colLabel}${row}`);
+    alert(`${colLabel}${row}`); //alert makes pup-up when you click a cell in table 2
   }
 
   printPage(): void {
