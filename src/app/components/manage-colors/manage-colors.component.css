@@ -1,0 +1,94 @@
+.manage-colors {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.manage-colors h1,
+.manage-colors h2 {
+  text-align: center;
+}
+
+.manage-colors form {
+  display: flex;
+  flex-direction: column;
+}
+
+.manage-colors form div {
+  margin-bottom: 10px;
+}
+
+.manage-colors form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.manage-colors form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.manage-colors form button {
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.manage-colors form button:hover {
+  background-color: #0056b3;
+}
+
+.color-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.color-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border: 1px solid #000;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+.delete-confirm {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.delete-confirm button {
+  padding: 10px;
+  margin: 0 5px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-confirm button:hover {
+  background-color: #c82333;
+}

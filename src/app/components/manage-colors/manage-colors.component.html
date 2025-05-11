@@ -1,0 +1,59 @@
+<div class="manage-colors">
+  <h1>Manage Colors</h1>
+  
+  <!-- Add New Color Interface -->
+  <div class="add-color">
+    <h2>Add New Color</h2>
+    <form (ngSubmit)="addColor()">
+      <div>
+        <label for="newColorName">Color Name:</label>
+        <input type="text" id="newColorName" [(ngModel)]="newColorName" name="newColorName" required>
+      </div>
+      <div>
+        <label for="newColorHex">Hex Code:</label>
+        <input type="text" id="newColorHex" [(ngModel)]="newColorHex" name="newColorHex" required>
+      </div>
+      <button type="submit">Add Color</button>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+  <!-- Edit Color Interface -->
+  <div class="edit-color" *ngIf="editingColor">
+    <h2>Edit Color</h2>
+    <form (ngSubmit)="saveEdit()">
+      <div>
+        <label for="editColorName">Color Name:</label>
+        <input type="text" id="editColorName" [(ngModel)]="editColorName" name="editColorName" required>
+      </div>
+      <div>
+        <label for="editColorHex">Hex Code:</label>
+        <input type="text" id="editColorHex" [(ngModel)]="editColorHex" name="editColorHex" required>
+      </div>
+      <button type="submit">Save Changes</button>
+      <button type="button" (click)="cancelEditing()">Cancel</button>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+  <!-- Existing Colors with Edit/Delete Options -->
+  <div class="color-list">
+    <h2>Existing Colors</h2>
+    <ul>
+      <li *ngFor="let color of colors">
+        <span [style.background-color]="color.hex" class="color-box"></span>
+        {{ color.name }} - {{ color.hex }}
+        <button (click)="startEditing(color)">Edit</button>
+        <button (click)="requestDelete(color)">Delete</button>
+      </li>
+    </ul>
+    <div class="error" *ngIf="deleteErrorMessage">{{ deleteErrorMessage }}</div>
+  </div>
+  
+  <!-- Delete Confirmation -->
+  <div class="delete-confirm" *ngIf="colorToDelete">
+    <p>Are you sure you want to delete "{{ colorToDelete.name }}"?</p>
+    <button (click)="confirmDelete()">Yes, Delete</button>
+    <button (click)="cancelDelete()">Cancel</button>
+  </div>
+</div>
