@@ -21,7 +21,10 @@ export class ColorGeneratorComponent {
   colorOptions: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'grey', 'brown', 'black', 'teal'];
   tableColors: string[] = []
 
+  //Added this.
   selectedRowIndex: number = 0;
+  paintedCells: number[][] = [];
+  colorCoordinates: string [][] = [];
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -58,6 +61,10 @@ export class ColorGeneratorComponent {
     }
     this.selectedRowIndex = 0;
     this.showTables = true;
+
+    //Added this.
+    this.paintedCells = Array.from({ length: this.numRows }, () => Array(this.numCols).fill(-1));
+    this.colorCoordinates = Array.from({ length: this.numColors }, () => []);
   }
 
   //table 1 - get arr of available colors for row
@@ -66,7 +73,8 @@ export class ColorGeneratorComponent {
     return this.colorOptions.filter(color => !selectedExcludingCurrent.includes(color) || color === this.tableColors[rowIndex]);
   }
 
-  onColorChange(rowIndex: number, event: any): void{ //handle radio button
+  onColorChange(rowIndex: number, event: any): void{
+    this.tableColors[rowIndex] = event.target.value;
     this.selectedRowIndex = rowIndex;
   }
 
@@ -86,9 +94,28 @@ export class ColorGeneratorComponent {
   }
 
   //table 2 click
+  //Updated:
   cellClicked(row: number, col: number): void {
-    const colLabel = this.getLetterColumnName(col-1);
-    alert(`${colLabel}${row}`); //alert makes pup-up when you click a cell in table 2
+    const r = row - 1;
+    const c = col - 1;
+    const coord = '${this.getLetterColumnName(c)}${row}';
+    const oldColorIndex = this.paintedCells[r][c];
+
+    if(oldColorIndex !== -1){
+      const index = this.colorCoordinates[oldColorIndex].indexOf(coord);
+      if(index > -1){
+        this.colorCoordinates[oldColorIndex].splice(index, 1);
+      }
+    }
+
+    this.paintedCells[r][c] = this.selectedRowIndex;
+
+    //add coord to acive color's list if not already there
+    if(this.colorCoordinates[this.selectedRowIndex].includes(coord)){
+      this.colorCoordinates[this.selectedRowIndex].push(coord);
+      this.colorCoordinates[this.selectedRowIndex].sort((a, b) => a.localeCompare(b)); //sorts by name then number
+    }
+    //alert(`${colLabel}${row}`); //alert makes pup-up when you click a cell in table 2
   }
 
   printPage(): void {

@@ -44,7 +44,7 @@
                         </option>
                     </select>
                 </td>
-                <td style="width: 80%;"></td> <!-- that took way too long to figure out lol. This leaves right cell blank. -->
+                <td style="width: 80%;">{{ colorCoordinates[i] ? colorCoordinates[i].join(', ') : '' }}</td> <!-- that took way too long to figure out lol. This leaves right cell blank. -->
             </tr>
         </tbody>
     </table>
@@ -71,6 +71,7 @@
 
                 <td *ngFor="let j of [].constructor(numCols); let jIndex = index"
                     style="cursor: pointer;"
+                    [style.backgroundColor]="paintedCells[iIndex][jIndex] !== -1 ? tableColors[paintedCells[iIndex][jIndex]] : ''"
                     (click)="cellClicked(iIndex+1, jIndex+1)"></td>
             </tr>
         </tbody>
