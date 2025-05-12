@@ -31,7 +31,7 @@
     </form>
 </section>
 
-<!-- Table 1 -->
+
 <div *ngIf="showTables">
     <table class="color-selection-table" style="width: 100%; table-layout: fixed;">
         <tbody>
@@ -44,43 +44,40 @@
                         </option>
                     </select>
                 </td>
-                <td style="width: 80%;">{{ colorCoordinates[i] ? colorCoordinates[i].join(', ') : '' }}</td> <!-- that took way too long to figure out lol. This leaves right cell blank. -->
-            </tr>
-        </tbody>
-    </table>
-
-
-
-    <br>
-    <!-- Table 2 -->
-    <table class="color-painting-table" border="1" style="border-collapse: collapse; width: 100%;">
-        <thead>
-            <tr>
-                <th 
-                    style="width: 50px;"> <!--upper cell empty-->
-                </th>
-                <th 
-                    *ngFor="let j of [].constructor(numCols); let jIndex = index"> <!--header-->
-                    {{ getLetterColumnName(jIndex) }}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let i of [].constructor(numRows); let iIndex = index">
-                <th style="width: 50px;">{{ iIndex + 1 }}</th>
-
-                <td *ngFor="let j of [].constructor(numCols); let jIndex = index"
-                    style="cursor: pointer;"
-                    [style.backgroundColor]="paintedCells[iIndex][jIndex] !== -1 ? tableColors[paintedCells[iIndex][jIndex]] : ''"
-                    (click)="cellClicked(iIndex+1, jIndex+1)"></td>
+                <td style="width: 80%;">{{ colorCoordinates[i] ? colorCoordinates[i].join(', ') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
     <br>
 
+<table class="color-painting-table" border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th style="width: 50px;"></th>
+            <th *ngFor="let j of [].constructor(numCols); let jIndex = index">
+                {{ getLetterColumnName(jIndex) }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of [].constructor(numRows); let iIndex = index">
+            <th style="width: 50px;">{{ iIndex + 1 }}</th>
+            <td *ngFor="let j of [].constructor(numCols); let jIndex = index"
+                class="colored-cell"
+                [style.backgroundColor]="paintedCells[iIndex][jIndex] !== -1 ? tableColors[paintedCells[iIndex][jIndex]] : ''"
+                style="cursor: pointer; position: relative; color: black; text-align: center; font-weight: bold;"
+                (click)="cellClicked(iIndex+1, jIndex+1)">
+                
+                <div *ngIf="paintedCells[iIndex][jIndex] !== -1">
+                    {{ tableColors[paintedCells[iIndex][jIndex]] }}<br>
+                    {{ getLetterColumnName(jIndex) + (iIndex + 1) }}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-
+    <br>
     <button (click)="printPage()">Print Page</button>
-
 </div>
