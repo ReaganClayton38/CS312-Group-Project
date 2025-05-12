@@ -2,3 +2,80 @@
     text-align: center;
     padding: 80px 20%;
 }
+
+.color-selection-table td,
+.color-painting-table th,
+.color-painting-table td {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.colored-cell {
+    position: relative;
+    color: black;
+    font-size: 10pt;
+}
+
+.colored-cell::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    color: black;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .generator-container,
+    table,
+    .color-selection-table,
+    .color-painting-table {
+        margin: 0 auto;
+        page-break-inside: avoid;
+    }
+
+    .generator-container {
+        width: 80%;
+        padding: 0;
+    }
+
+    button,
+    form {
+        display: none;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 6px;
+    }
+
+    .color-selection-table td {
+        border: none;
+    }
+
+    .colored-cell {
+        height: 30px;
+        width: 30px;
+    }
+
+    .color-painting-table {
+        margin-top: 20px;
+    }
+}
