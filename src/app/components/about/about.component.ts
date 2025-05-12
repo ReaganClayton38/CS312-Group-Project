@@ -28,7 +28,7 @@ export class AboutComponent {
     {
       name: "Payton Paplow",
       bio: "Hello, my name is Payton Paplow, and I am a Computer Science major in my junior year at CSU. If I’m not doing school work I’m usually at the gym, reading, or trying to get active outdoors.",
-      image: "images/placeholder.jpg"
+      image: "images/PaytonPhoto.jpg"
     }
   ]
 }
