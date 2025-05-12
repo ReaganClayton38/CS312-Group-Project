@@ -13,7 +13,7 @@ export class AboutComponent {
     {
       name: "Reagan Clayton",
       bio: "I am Reagan, a Computer Science student at Colorado State University. Before I began attending CSU, I was a self-taught WebDev. Since then, I have began to move more toward the security side of things, as my concentration at CSU is Networks and Security.",
-      image: "images/placeholder.jpg"
+      image: "images/reagan.jpg"
     },
     {
       name: "Chandler Brown",
