@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-color-generator',
+  standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './color-generator.component.html',
   styleUrls: ['./color-generator.component.css']
@@ -83,10 +84,9 @@ export class ColorGeneratorComponent {
   cellClicked(row: number, col: number): void {
     const r = row - 1;
     const c = col - 1;
-    const coord = `${this.getLetterColumnName(c)}${row}`;
+    const coord = this.getLetterColumnName(c) + row;
     const oldColorIndex = this.paintedCells[r][c];
 
-    // Remove old coordinate if it was already painted
     if (oldColorIndex !== -1) {
       const index = this.colorCoordinates[oldColorIndex].indexOf(coord);
       if (index > -1) {
@@ -94,20 +94,13 @@ export class ColorGeneratorComponent {
       }
     }
 
-    // Update paintedCells
     this.paintedCells[r][c] = this.selectedRowIndex;
 
-    // Add new coordinate only if not already present
     if (!this.colorCoordinates[this.selectedRowIndex].includes(coord)) {
       this.colorCoordinates[this.selectedRowIndex].push(coord);
       this.colorCoordinates[this.selectedRowIndex].sort((a, b) => a.localeCompare(b));
     }
   }
-
-  printPage(): void {
-    window.print();
-  }
-}
 
   printPage(): void {
     window.print();
